@@ -1,0 +1,84 @@
+/* ==========================================================================
+   ⚠️ NOVO LIGHTBOX: CARD VERTICAL DE LUXO COM SWIPE (lightbox.css) [1]
+   ========================================================================== */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.92); /* Fundo sutilmente translúcido */
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+/* Botão Fechar */
+.btn-close-lightbox {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 2.25rem;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 2010;
+    line-height: 1;
+}
+
+/* Card de Luxo Suspenso Vertical [1] */
+.lightbox-card-box {
+    background-color: var(--color-card);
+    max-width: 24rem; /* Largura ideal simulando tela de smartphone [1] */
+    width: 100%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    cursor: default; /* Impede que feche ao tocar no card [1] */
+    border: 1px solid var(--color-border);
+}
+
+/* Foto do Pet no topo [1] */
+.lightbox-card-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Proporção fotográfica ideal [1] */
+    overflow: hidden;
+    background-color: #000;
+}
+
+.lightbox-img-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Painel Escuro de Legendas no rodapé do card para legibilidade [1] */
+.lightbox-card-info-pane {
+    background-color: var(--color-text-dark); /* Fundo escuro sólido */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    text-align: left;
+}
+
+/* Legenda em Branco Cristal de alta legibilidade [1] */
+.lightbox-card-caption {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #FFFFFF; /* Branco Cristal de alta legibilidade [1] */
+}
+
+/* Data sutil em tom Rose Gold */
+.lightbox-card-date {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-rose-gold);
+}

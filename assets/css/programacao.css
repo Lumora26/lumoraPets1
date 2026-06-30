@@ -1,0 +1,41 @@
+/* ==========================================================================
+   POEMA ESTILO PAPEL RASGADO ENVELHECIDO (programacao.css) [1]
+   ========================================================================== */
+.poem-section {
+    margin-top: 3.5rem;
+    position: relative;
+    background-color: #F1E5C9; /* ⚠️ CORRIGIDO: Amarelo/laranja papel antigo desgastado [1] */
+    border: 1px solid #D6C29E;
+    color: #5C432E; /* Marrom escuro para manter leitura legível [1] */
+    padding: 3rem 2rem;
+    text-align: center;
+    clip-path: url(#torn-paper-clip);
+    -webkit-clip-path: url(#torn-paper-clip);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Textura sutil envelhecida de papel por cima */
+.poem-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(0,0,0,0.015) 1px, transparent 0);
+    background-size: 4px 4px;
+    pointer-events: none;
+}
+
+.poem-icon {
+    font-size: 1.75rem;
+    color: #8C6239; /* Bronze */
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.poem-verse {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.8125rem;
+    color: #6C533E; /* Muted brown */
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}

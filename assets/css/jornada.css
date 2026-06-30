@@ -1,0 +1,87 @@
+/* ==========================================================================
+   ESTILOS DE CURIOSIDADES E MANIAS (jornada.css) [1]
+   ========================================================================== */
+.curiosity-section {
+    margin-top: 3.5rem;
+}
+
+.section-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-rose-gold);
+}
+
+.curiosity-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Card de Curiosidade Especial com Animação Premium [1] */
+.curiosity-card {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(44, 62, 53, 0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+}
+
+/* Hover: Elevação física, brilho e borda dourada ativa [1] */
+.curiosity-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-rose-gold);
+    box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.15);
+}
+
+/* Foto da mania */
+.curiosity-img {
+    width: 5.5rem;
+    height: 5.5rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.curiosity-card:hover .curiosity-img {
+    transform: scale(1.05); /* Foto amplia sutilmente no hover do card [1] */
+}
+
+.curiosity-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.curiosity-label-tag {
+    font-size: 0.5625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-rose-gold);
+}
+
+.curiosity-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.curiosity-desc {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+}
