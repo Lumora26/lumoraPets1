@@ -141,23 +141,6 @@ body {
     margin: 0 auto;
 }
 
-.welcome-video-wrapper {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    background-color: #000;
-    border-radius: 1rem;
-    overflow: hidden;
-    border: 2px solid var(--color-white);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-}
-
-.welcome-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .welcome-btn-container {
     padding-top: 0.5rem;
 }

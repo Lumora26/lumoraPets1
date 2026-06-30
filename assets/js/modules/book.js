@@ -20,5 +20,5 @@ export function switchBookPage(pageNumber) {
     document.getElementById(`book-page-${pageNumber}`).classList.remove("hidden");
     
     // Acende a bolinha da aba selecionada
-    document.getElementById(`tab-b${pageNumber}`).classList.add("active");
+    document.getElementById(`book-tab-${pageNumber}`).classList.add("active");
 }

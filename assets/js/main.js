@@ -7,7 +7,6 @@
 
 // Importações lógicas dos módulos
 import { switchBookPage } from './modules/book.js';
-import { toggleModal } from './modules/modal.js';
 import { openLightbox, openGalleryLightbox, changeLightboxImage, configurarSwipeLightbox, forceCloseLightbox, closeLightbox } from './utils/lightbox.js';
 import { inicializarMuralRealTime, handleLiveSubmit, previewImage, removePreview } from './modules/mural.js';
 
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // RESOLUÇÃO DE ESCOPO: Vincula os módulos à janela global "window" para os cliques do HTML funcionarem [1]
-window.toggleModal = toggleModal;
 window.switchBookPage = switchBookPage;
 window.openGalleryLightbox = openGalleryLightbox;
 window.changeLightboxImage = changeLightboxImage;

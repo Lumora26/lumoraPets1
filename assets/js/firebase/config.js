@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * CONFIGURAÇÃO DO FIREBASE (config.js)
- * Sincronizado para a versão unificada do Memorial Pet 12.14.0.
+ * Conexão unificada do portal pet da Lumora.
  * ==========================================================================
  */
 
@@ -21,5 +21,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// Banco de dados Firestore exportado para os outros módulos
+// Banco de dados NoSQL exportado para uso nos módulos
 export const db = getFirestore(app);

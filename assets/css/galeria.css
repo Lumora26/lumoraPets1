@@ -13,7 +13,7 @@
 }
 
 .gallery-item {
-    aspect-ratio: 1 / 1; /* Quadrado simétrico */
+    aspect-ratio: 1 / 1; /* Quadrado simétrico [1] */
     background-color: var(--color-card);
     overflow: hidden;
     border-radius: 0.75rem;

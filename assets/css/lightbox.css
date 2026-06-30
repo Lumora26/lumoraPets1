@@ -56,7 +56,7 @@
     object-fit: cover;
 }
 
-/* Painel Escuro de Legendas no rodapé do card para legibilidade [1] */
+/* Painel Escuro de Legendas no rodapé do card para alta legibilidade [1] */
 .lightbox-card-info-pane {
     background-color: var(--color-text-dark); /* Fundo escuro sólido */
     padding: 1.5rem;
