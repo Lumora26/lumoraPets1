@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumora Pet • Nosso Eterno Thor</title>
+    
+    <!-- METATAGS DE OTIMIZAÇÃO -->
+    <meta name="description" content="Lumora Pet - Memorial de lealdade do nosso amado Thor">
+    <meta name="author" content="Lumora">
+    <meta name="theme-color" content="#FAF6F3">
+    <link rel="shortcut icon" href="assets/img/lumora/logolumora.png" type="image/x-icon">
+    
+    <!-- FONTES DO GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- LINK PARA A FOLHA DE ESTILOS CENTRAL EM CSS PURO -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-light-theme">
+
+    <!-- CANVAS PARA CÉU ANIMADO (ESTRELAS & PATINHAS FLUTUANTES) [1, 2] -->
+    <canvas id="starryCanvas"></canvas>
+
+    <!-- MAIN: ENVOLTÓRIO DA TELA DE ABERTURA -->
+    <main class="welcome-wrapper">
+        <div id="welcomeScreen" class="welcome-screen">
+            <div class="welcome-container">
+                <!-- Tag Superior do Logo -->
+                <span class="welcome-tag">Memorial Digital • Lumora Pet</span>
+                
+                <!-- Foto de Capa do Pet na Entrada -->
+                <div class="welcome-photo-frame" style="margin: 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=600&auto=format&fit=crop" alt="Thor Capa" class="welcome-photo">
+                </div>
+
+                <!-- Nome do Pet -->
+                <h1 class="welcome-title font-serif">Nosso Eterno Thor</h1>
+                
+                <!-- Texto de Apresentação -->
+                <p class="welcome-text">
+                    Tributo de saudade e amor infinito ao nosso grande e fiel companheiro de quatro patas.
+                </p>
+                
+                <!-- Redirecionamento para a página interna do memorial do Pet -->
+                <div class="welcome-btn-container">
+                    <a href="assets/pages/index.html" class="btn-primary uppercase tracking-wide">Acessar Memorial</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- RODAPÉ DA ENTRADA -->
+    <footer class="discreet-footer">
+        <p>&copy; MDL • Memorial Digital Lumora Pet</p>
+    </footer>
+
+    <!-- SCRIPT DO CÉU ANIMADO DE PATINHAS FLUTUANTES EXCLUSIVO DA TELA DE ABERTURA -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const canvas = document.getElementById('starryCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            const stars = [];
+            const paws = [];
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            // Cria estrelas estáticas cintilantes
+            for (let i = 0; i < 50; i++) {
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    size: Math.random() * 1.5,
+                    alpha: Math.random(),
+                    speed: 0.01 + Math.random() * 0.02
+                });
+            }
+
+            // Função para gerar novas patinhas flutuantes (🐾)
+            function createPaw() {
+                if (paws.length < 10) {
+                    paws.push({
+                        x: Math.random() * width,
+                        y: height + 10,
+                        size: 14 + Math.random() * 10,
+                        alpha: 0.1 + Math.random() * 0.4,
+                        speed: 0.4 + Math.random() * 0.8,
+                        wiggle: Math.random() * 0.01,
+                        wiggleOffset: Math.random() * 100
+                    });
+                }
+            }
+
+            // Loop de renderização fluida (60 FPS)
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Desenha estrelas
+                stars.forEach(star => {
+                    ctx.fillStyle = `rgba(143, 158, 139, ${star.alpha})`; // Cor Sage Green [1]
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    star.alpha += star.speed;
+                    if (star.alpha > 0.8 || star.alpha < 0.1) {
+                        star.speed = -star.speed;
+                    }
+                });
+
+                // Cria novas patinhas de forma suave
+                if (Math.random() < 0.02) createPaw();
+
+                // Desenha patinhas flutuantes (🐾)
+                paws.forEach((paw, index) => {
+                    ctx.save();
+                    ctx.globalAlpha = paw.alpha;
+                    ctx.font = `${paw.size}px Arial`;
+                    const xPos = paw.x + Math.sin(Date.now() * paw.wiggle + paw.wiggleOffset) * 8;
+                    ctx.fillText("🐾", xPos, paw.y);
+                    ctx.restore();
+
+                    paw.y -= paw.speed;
+
+                    // Deleta patinha se passar do topo da tela
+                    if (paw.y < -30) {
+                        paws.splice(index, 1);
+                    }
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        });
+    </script>
+</body>
+</html>
