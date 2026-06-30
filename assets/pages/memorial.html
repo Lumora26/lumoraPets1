@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumora Pet • Nosso Eterno Thor</title>
+    
+    <!-- METATAGS DO ANIMAL -->
+    <meta name="description" content="Lumora Pet - Memorial de lealdade do nosso amado Thor">
+    <meta name="author" content="Lumora">
+    <meta name="theme-color" content="#FAF6F3">
+    
+    <!-- METATAGS OPEN GRAPH -->
+    <meta property="og:title" content="Memorial Digital • Thor">
+    <meta property="og:description" content="Acesse nosso portal pet, reviva nossos momentos felizes e deixe um carinho!">
+    <meta property="og:image" content="./../img/perfil.jpg">
+    <meta property="og:type" content="website">
+    
+    <link rel="shortcut icon" href="./../img/lumora/logolumora.png" type="image/x-icon">
+    
+    <!-- FONTES DO GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- IMPORTAÇÃO DE TODAS AS FOLHAS DE ESTILO EM CSS PURO -->
+    <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/galeria.css">
+    <link rel="stylesheet" href="./../css/lightbox.css">
+    <link rel="stylesheet" href="./../css/memorial.css">
+    <link rel="stylesheet" href="./../css/mural.css">
+</head>
+<body class="bg-light-theme pb-28">
+
+    <!-- CANVAS PARA CÉU ANIMADO (ESTRELAS & PATINHAS FLUTUANTES) -->
+    <canvas id="starryCanvas"></canvas>
+
+    <!-- PORTAL PRINCIPAL -->
+    <main class="memorial-container">
+        
+        <!-- CABEÇALHO -->
+        <header class="memorial-header">
+            <span class="memorial-date">* 15/04/2014 &nbsp;•&nbsp; † 28/05/2026</span>
+            <div class="profile-frame">
+                <!-- Foto do Pet (Clicável para abrir no Lightbox) -->
+                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=600&auto=format&fit=crop" alt="Thor" class="profile-img" onclick="openLightbox(this.src)">
+            </div>
+            
+            <h2 class="profile-name font-serif">Thor</h2>
+            <span class="memorial-date" style="margin-top: 4px;">Anos de Lealdade Eterna</span>
+            
+            <blockquote class="profile-quote font-serif">
+                "Não existem palavras suficientes para agradecer pelo amor incondicional que você trouxe para as nossas vidas."
+            </blockquote>
+        </header>
+
+        <!-- SEÇÃO: LIVRO DIGITAL DA VIDA (HISTÓRIA EM ABAS NUMERADAS) -->
+        <section class="book-section">
+            <div class="book-header">
+                <h3 class="book-title font-serif">Minha História</h3>
+                <!-- Abas interativas do livro -->
+                <div class="book-tabs">
+                    <button id="book-tab-1" onclick="switchBookPage(1)" class="book-tab-btn active">1</button>
+                    <button id="book-tab-2" onclick="switchBookPage(2)" class="book-tab-btn">2</button>
+                    <button id="book-tab-3" onclick="switchBookPage(3)" class="book-tab-btn">3</button>
+                    <button id="book-tab-4" onclick="switchBookPage(4)" class="book-tab-btn">4</button>
+                </div>
+            </div>
+
+            <!-- Páginas de conteúdo do livro -->
+            <div class="book-body">
+                <!-- Página 1: Descrição -->
+                <div id="book-page-1" class="book-page-content">
+                    <p class="font-serif" style="font-style: italic; font-weight: 600; font-size: 0.8125rem; color: var(--color-blush); margin-bottom: 0.25rem;">Quem era o Thor:</p>
+                    O Thor era uma verdadeira força de alegria em forma de Golden Retriever. Com seu pelo dourado sempre brilhando ao sol e seus olhos cheios de carinho, que pareciam compreender cada palavra e cada sentimento, ele conquistava todos ao seu redor sem precisar de muito esforço. Sua presença iluminava qualquer ambiente, transformando os dias mais comuns em momentos especiais.<br>
+                    Brincalhão por natureza, Thor adorava correr atrás de bolinhas, explorar novos lugares e receber o carinho de quem amava. Bastava um simples chamado para que ele aparecesse abanando o rabo com entusiasmo, pronto para compartilhar mais uma aventura ou simplesmente deitar ao lado da família, oferecendo conforto com sua companhia silenciosa.<br>
+                    Mais do que um animal de estimação, Thor foi um membro da família, um amigo fiel e um companheiro inseparável. Durante todos os anos em que esteve presente, distribuiu amor incondicional, lealdade e incontáveis lembranças que permanecerão vivas para sempre no coração de todos que tiveram a sorte de conhecê-lo.<br>
+                    Mesmo que suas patinhas já não deixem marcas pela casa, sua essência continua presente em cada fotografia, em cada história contada e em cada sorriso provocado pelas lembranças que deixou. O amor que Thor compartilhou jamais desaparecerá, pois algumas conexões são eternas e permanecem vivas muito além do tempo.
+                </div>
+
+                <!-- Página 2: A Chegada (Oculta por padrão) -->
+                <div id="book-page-2" class="book-page-content hidden">
+                    <p class="font-serif" style="font-style: italic; font-weight: 600; font-size: 0.8125rem; color: var(--color-blush); margin-bottom: 0.25rem;">A Chegada (2014):</p>
+                    Ele chegou à nossa casa em um sábado chuvoso de outono, ainda tão pequenino que cabia perfeitamente na palma de nossas mãos. Assustado com aquele novo mundo, tremia de leve enquanto observava tudo ao seu redor com seus olhinhos curiosos. Bastou uma lambida carinhosa no nariz, um chorinho manhoso e um rabinho balançando timidamente para que conquistasse, em poucos instantes, o coração de toda a família. <br>
+                    Naquele dia, talvez ninguém imaginasse o quanto aquele pequeno filhote mudaria nossas vidas. Aos poucos, ele transformou a casa em um lar ainda mais cheio de alegria, carinho e momentos inesquecíveis. Cada canto passou a guardar uma lembrança sua, e cada rotina ganhou um significado especial com sua presença. Desde o primeiro instante, Thor não foi apenas um cachorro: tornou-se parte da família, um companheiro fiel que nos ensinou, todos os dias, o verdadeiro significado do amor incondicional.
+                </div>
+
+                <!-- Página 3: Momentos (Oculta por padrão) -->
+                <div id="book-page-3" class="book-page-content hidden">
+                    <p class="font-serif" style="font-style: italic; font-weight: 600; font-size: 0.8125rem; color: var(--color-blush); margin-bottom: 0.25rem;">Marcos Felizes:</p>
+                   Viver com o Thor era ter a certeza de que cada dia reservava um novo motivo para sorrir. Sua alegria era contagiante e transformava até os momentos mais simples em lembranças inesquecíveis. Bastava pegar sua bolinha favorita, já desgastada de tantas brincadeiras, para que ele saísse correndo pela casa com a mesma empolgação de um filhote, convidando todos a participarem da diversão. <br>
+                    As viagens para a praia eram um de seus momentos preferidos. Ele corria pela areia sem se cansar, perseguia as ondas como se fossem uma grande aventura e latia para o mar com uma coragem que sempre nos fazia rir. Parecia que cada passeio era uma descoberta, vivido com a curiosidade e o entusiasmo que só ele tinha. <br>
+                    Thor também tinha suas manias encantadoras: gostava de dormir bem perto da família, esperava ansiosamente por um carinho antes de descansar e fazia pequenas travessuras que arrancavam risadas mesmo quando tentávamos fingir estar bravos. Eram esses detalhes, tão simples e ao mesmo tempo tão especiais, que enchiam nossa casa de vida, amor e felicidade. <br>
+                    Hoje, o silêncio deixado por sua ausência é sentido em cada canto. Mas todas essas lembranças continuam vivas em nossos corações, lembrando-nos diariamente do privilégio que foi compartilhar tantos momentos ao lado de um amigo tão leal, amoroso e inesquecível.
+
+                </div>
+
+                <!-- Página 4: A Partida (Oculta por padrão) -->
+                <div id="book-page-4" class="book-page-content hidden">
+                    <p class="font-serif" style="font-style: italic; font-weight: 600; font-size: 0.8125rem; color: var(--color-blush); margin-bottom: 0.25rem;">A Partida (2026):</p>
+                    No dia **28 de maio de 2026**, chegou o momento que jamais gostaríamos de viver. Com o coração em pedaços e os olhos cheios de lágrimas, nos despedimos do nosso melhor amigo. Thor enfrentou seus últimos dias com a mesma coragem e doçura que marcaram toda a sua vida, cercado pelo amor, pelo carinho e pelos abraços daqueles que sempre estiveram ao seu lado. <br>
+                    Embora a despedida tenha sido profundamente dolorosa, encontramos conforto ao saber que ele partiu sentindo todo o amor que recebeu durante sua jornada. Cada afago, cada palavra de carinho e cada gesto naquele último momento carregavam a gratidão por todos os anos de felicidade que ele nos proporcionou. <br>
+                    Hoje, sua ausência deixa um silêncio que ecoa por toda a casa. Ainda sentimos falta do som de suas patinhas pelo corredor, da alegria com que nos recebia e do olhar cheio de ternura que fazia qualquer problema parecer menor. Mas o amor verdadeiro não desaparece com a despedida. <br>
+                    Thor continuará vivendo em nossas lembranças, nas fotografias, nas histórias compartilhadas e, principalmente, em nossos corações. Sua lealdade, seu companheirismo e o amor incondicional que nos ofereceu serão eternos. Enquanto houver alguém para lembrar do seu nome com um sorriso e um aperto de saudade no peito, uma parte dele continuará para sempre ao nosso lado.
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: AGENDA CLÁSSICA DE INFORMAÇÕES (INFO-CARD) -->
+        <section class="agenda-section">
+            <!-- Argolas espirais decorativas no topo -->
+            <div class="agenda-spiral-binder">
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+                <div class="spiral-ring"></div>
+            </div>
+            
+            <div class="agenda-grid">
+                <div class="agenda-item">
+                    <span class="agenda-label">Nome Completo</span>
+                    <span class="agenda-value">Thor Vasconcelos Santos</span>
+                </div>
+                <div class="agenda-item">
+                    <span class="agenda-label">Idade</span>
+                    <span class="agenda-value">12 Anos e 1 Mês</span>
+                </div>
+                <div class="agenda-item">
+                    <span class="agenda-label">Nascimento</span>
+                    <span class="agenda-value">15 de Abril de 2014</span>
+                </div>
+                <div class="agenda-item">
+                    <span class="agenda-label">Partida</span>
+                    <span class="agenda-value">28 de Maio de 2026</span>
+                </div>
+                <div class="agenda-item">
+                    <span class="agenda-label">Raça</span>
+                    <span class="agenda-value">Golden Retriever</span>
+                </div>
+                <div class="agenda-item">
+                    <span class="agenda-label">Apelidos</span>
+                    <span class="agenda-value">Gordo, Lobinho, Felpudo</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CURIOSIDADES & MANIAS (COM HOVER ANIMADO E NOVAS MANIAS) -->
+        <section class="curiosity-section">
+            <h3 class="section-title font-serif">Curiosidades & Manias</h3>
+            <div class="curiosity-grid">
+                <!-- Curiosidade 1 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=300&auto=format&fit=crop" class="curiosity-img" alt="Mania Fofa" onclick="openLightbox(this.src)">
+                    <div class="curiosity-info">
+                        <span class="curiosity-label-tag">Mania fofa</span>
+                        <h4 class="curiosity-title">Dormir de patas para o ar 🐾</h4>
+                        <p class="curiosity-desc">Sempre que o dia estava muito quente, ele deitava no corredor e esticava as quatro patas para o teto, roncando baixinho.</p>
+                    </div>
+                </div>
+
+                <!-- Curiosidade 2 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1514984879728-be0aff75a6e8?q=80&w=300&auto=format&fit=crop" class="curiosity-img" alt="Brinquedo Predileto" onclick="openLightbox(this.src)">
+                    <div class="curiosity-info">
+                        <span class="curiosity-label-tag">Predileção</span>
+                        <h4 class="curiosity-title">A Bolinha de Tênis Verde 🎾</h4>
+                        <p class="curiosity-desc">Ele tinha dezenas de brinquedos, mas nada superava sua velha bolinha de tênis gasta, que ele colocava de presente no colo de cada visita.</p>
+                    </div>
+                </div>
+
+                <!-- Curiosidade 3 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?q=80&w=300&auto=format&fit=crop" class="curiosity-img" alt="Lugar Favorito" onclick="openLightbox(this.src)">
+                    <div class="curiosity-info">
+                        <span class="curiosity-label-tag">Lugar predileto</span>
+                        <h4 class="curiosity-title">A Janela da Varanda 🏡</h4>
+                        <p class="curiosity-desc">Seu passatempo preferido era deitar com a cabeça apoiada na fresta da varanda, vigiando todo o movimento da rua.</p>
+                    </div>
+                </div>
+
+                <!-- Curiosidade 4 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=300&auto=format&fit=crop" class="curiosity-img" alt="Comida Favorita" onclick="openLightbox(this.src)">
+                    <div class="curiosity-info">
+                        <span class="curiosity-label-tag">Gosto Peculiar</span>
+                        <h4 class="curiosity-title">Borda de Pizza de Catupiry 🍕</h4>
+                        <p class="curiosity-desc">Nas noites de domingo, ele sentava de forma impecável ao lado da mesa, esperando ansioso pela sua parte favorita da janta.</p>
+                    </div>
+                </div>
+
+                <!-- Curiosidade 5 -->
+                <div class="curiosity-card">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=300&auto=format&fit=crop" class="curiosity-img" alt="Momento em Família" onclick="openLightbox(this.src)">
+                    <div class="curiosity-info">
+                        <span class="curiosity-label-tag">Em Família</span>
+                        <h4 class="curiosity-title">Noites de Cinema no Sofá 🍿</h4>
+                        <p class="curiosity-desc">Todos se espremiam no sofá, e o Thor era o primeiro a deitar atravessado, exigindo cafuné de todo mundo durante o filme.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: GALERIA SIMÉTRICA (EXATAMENTE 9 FOTOS) [1] -->
+        <section class="gallery-section">
+            <h3 class="section-title font-serif">Galeria de Lembranças</h3>
+            <div class="gallery-grid">
+                <!-- Foto 1 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=400&auto=format&fit=crop" alt="Thor Filhote">
+                </div>
+                <!-- Foto 2 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1514984879728-be0aff75a6e8?q=80&w=400&auto=format&fit=crop" alt="Brincando no Jardim">
+                </div>
+                <!-- Foto 3 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=400&auto=format&fit=crop" alt="Passeio no Parque">
+                </div>
+                <!-- Foto 4 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=400&auto=format&fit=crop" alt="Dia de Soneca">
+                </div>
+                <!-- Foto 5 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=400&auto=format&fit=crop" alt="Olhar de Amor">
+                </div>
+                <!-- Foto 6 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=400&auto=format&fit=crop" alt="Thor Elegante">
+                </div>
+                <!-- Foto 7 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(6)">
+                    <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?q=80&w=400&auto=format&fit=crop" alt="Soneca no Sofá">
+                </div>
+                <!-- Foto 8 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(7)">
+                    <img src="https://images.unsplash.com/photo-1444212477490-ca407925329e?q=80&w=400&auto=format&fit=crop" alt="Thor na Natureza">
+                </div>
+                <!-- Foto 9 -->
+                <div class="gallery-item" onclick="openGalleryLightbox(8)">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=400&auto=format&fit=crop" alt="Thor Sorrindo">
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: O LEVE POEMA DE DESPEDIDA ESTILO PAPEL RASGADO VETORIAL (CORRIGIDO VINTAGE) [1] -->
+        <section class="poem-section">
+            <span class="poem-icon">🕊️</span>
+            <p class="poem-verse font-serif">"Sei que agora corre livre em campos infinitos,"</p>
+            <p class="poem-verse font-serif">"Latindo para o vento, feliz e sem dor,"</p>
+            <p class="poem-verse font-serif">"Guardo em minha alma seus olhos tão bonitos,"</p>
+            <p class="poem-verse font-serif">"Obrigado por me ensinar o que é o amor."</p>
+        </section>
+
+        <!-- MURAL DE CARINHO (AO VIVO PARA FAMÍLIA E AMIGOS) -->
+        <section class="mural-section">
+            <div class="mural-header">
+                <h3 class="mural-title font-serif">
+                    <span class="live-indicator">
+                        <span class="live-ping"></span>
+                        <span class="live-dot"></span>
+                    </span>
+                    Mural de Carinho
+                </h3>
+                <span class="mural-status">Deixe sua homenagem de afeto</span>
+            </div>
+
+            <!-- FORMULÁRIO DE ENVIO RÁPIDO -->
+            <div class="form-container glow-rose">
+                <form onsubmit="handleLiveSubmit(event)" class="mural-form">
+                    <div class="form-row">
+                        <div>
+                            <label class="form-label">Seu Nome</label>
+                            <input type="text" id="form_name" required class="input-field">
+                        </div>
+                        <div>
+                            <label class="form-label">Sentimento</label>
+                            <select id="form_relation" class="select-field">
+                                <option value="Saudade">Saudade 🥺</option>
+                                <option value="Amor">Amor Eterno ❤️</option>
+                                <option value="Gratidão">Gratidão ✨</option>
+                                <option value="Lambidas">Lambidas/Patinhas 🐾</option>
+                                <option value="Doçura">Doçura/Paz 🕊️</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Sua Mensagem de Apoio</label>
+                        <textarea id="form_text" rows="2" class="textarea-field" placeholder="Escreva uma mensagem carinhosa ou uma lembrança fofa..."></textarea>
+                    </div>
+
+                    <!-- Captura de câmera ou galeria do celular -->
+                    <div>
+                        <label class="form-label">Registrar Momento com Ele (Foto)</label>
+                        <div class="file-uploader">
+                            <input type="file" id="form_photo" accept="image/*" class="file-input" onchange="previewImage(event)">
+                            <div id="photo_placeholder" class="file-placeholder">
+                                <span>📸</span>
+                                <span>Anexar Foto de Lembrança</span>
+                            </div>
+                        </div>
+                        <div id="preview_container" class="preview-container hidden">
+                            <img id="image_preview" src="" class="preview-img">
+                            <button type="button" onclick="removePreview()" class="btn-remove-photo">&times;</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit uppercase tracking-wide">
+                        Fixar Nota no Mural do Thor
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Feed de Mensagens Dinâmico e Persistente (LocalStorage) -->
+            <div id="muralFeed" class="mural-feed">
+                <!-- Notas carregadas por JS -->
+            </div>
+        </section>
+
+        <!-- RODAPÉ DISCRETO -->
+        <footer class="memorial-footer">
+            <p>Lumora Pet • Lembrança Única do Nosso Thor</p>
+            <p class="discreet-text">Escanear para reviver as memórias de carinho</p>
+        </footer>
+        
+    </main>
+
+    <!-- NOVO LIGHTBOX: CARD VORTICAL DE LUXO COM SWIPE (LEGIVEL E SEM SETAS) [1] -->
+    <div id="lightbox" class="lightbox-overlay hidden" onclick="closeLightbox(event)">
+        <!-- Botão de Fechar -->
+        <button class="btn-close-lightbox" onclick="forceCloseLightbox()">&times;</button>
+        
+        <!-- Card de Luxo Suspenso Vertical [1] -->
+        <div class="lightbox-card-box" onclick="event.stopPropagation()">
+            <!-- Foto do Pet no topo [1] -->
+            <div class="lightbox-card-img-wrapper">
+                <img id="lightboxImg" class="lightbox-img-element" src="" alt="Ampliação">
+            </div>
+            
+            <!-- Painel Escuro de Legendas no rodapé do card para alta legibilidade [1] -->
+            <div class="lightbox-card-info-pane">
+                <span id="lightboxCaption" class="lightbox-card-caption">Legenda da Foto</span>
+                <span id="lightboxDate" class="lightbox-card-date">Maio de 2014</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÁSCARA VETORIAL DO PAPEL RASGADO (SVG CLIPPATH INVISÍVEL) -->
+    <svg width="0" height="0" style="position: absolute; pointer-events: none;">
+        <defs>
+            <clipPath id="torn-paper-clip" clipPathUnits="objectBoundingBox">
+                <!-- Desenho matemático vetorial de alta definição para as bordas rasgadas -->
+                <path d="M 0,0.04 
+                         C 0.05,0.02 0.1,0.06 0.15,0.03 
+                         C 0.2,0.01 0.25,0.05 0.3,0.02 
+                         C 0.35,0.04 0.4,0.01 0.45,0.03 
+                         C 0.5,0.05 0.55,0.02 0.6,0.04 
+                         C 0.65,0.01 0.7,0.05 0.75,0.02 
+                         C 0.8,0.04 0.85,0.01 0.9,0.03 
+                         C 0.95,0.05 1,0.02 1,0.04 
+                         L 1,0.96 
+                         C 0.95,0.94 0.9,0.98 0.85,0.95 
+                         C 0.8,0.92 0.75,0.96 0.7,0.93 
+                         C 0.65,0.95 0.6,0.92 0.55,0.94 
+                         C 0.5,0.97 0.45,0.93 0.4,0.95 
+                         C 0.35,0.92 0.3,0.96 0.25,0.93 
+                         C 0.2,0.95 0.15,0.91 0.1,0.94 
+                         C 0.05,0.97 0,0.93 0,0.96 
+                         Z" />
+                    </clipPath>
+        </defs>
+    </svg>
+
+    <!-- SCRIPT DE COMPORTAMENTO EM JAVASCRIPT MODULAR (IMPORTANTÍSSIMO: type="module") -->
+    <script type="module" src="./../js/main.js"></script>
+
+</body>
+</html>
